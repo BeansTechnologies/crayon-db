@@ -1,0 +1,30 @@
+{
+  "name": "crayon-db",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "malezjaa",
+  "description": "File system database.",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/malezjaa"
+  },
+  "homepage": "https://github.com/beanstechnologies/crayon-db",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beanstechnologies/crayon-db.git"
+  },
+  "scripts": {
+    "lint": "eslint --ext js,ts,tsx .",
+    "build": "tsc -p tsconfig.json",
+    "pkg": "ts-node-dev ./src/test.ts"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "prime-console": "^1.1.4",
+    "unbuild": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.3.1"
+  }
+}
