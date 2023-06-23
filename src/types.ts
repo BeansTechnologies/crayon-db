@@ -1,30 +1,22 @@
-export type DatabaseValue = string | number | boolean | object | null | undefined;
+export type DatabaseValue = {
+  [key: string]: any;
+};
 
 export interface DatabaseItem {
-    key: string;
-    value: DatabaseValue;
-    required?: boolean;
-    unique?: boolean;
-    timestamp?: boolean;
-}
-
-export interface DatabaseSchema<T> {
-    name: string;
-    items: T[];
+  value: DatabaseValue;
+  timestamp?: boolean | number;
 }
 
 export interface DatabaseContext<T extends DatabaseItem = DatabaseItem> {
-    name: string;
-    schemas: DatabaseSchema<T>[];
-    defineSchema: (schema: DatabaseSchema<T>) => void;
-    document: (schema: DatabaseSchema<T>, id: string) => Document<T>;
+  name: string;
+  document: () => Document<T>;
 }
 
 export interface Document<T extends DatabaseItem = DatabaseItem> {
-    id: string;
-    items: T[];
-    add: (item: T) => void;
-    remove: (item: T) => void;
-    update: (item: T) => void;
-    get: (key: string) => T | undefined;
+  add: (name: string, object: T) => T[] | undefined | void;
+  remove: (id: string) => void;
+  update: (id: string, object: T) => void;
+  find: (id: string, populate?: string[]) => T | undefined | void;
+  findByName: (name: string, populate?: string[]) => T[] | undefined | void;
+  removeByName: (name: string) => T[] | undefined | void;
 }

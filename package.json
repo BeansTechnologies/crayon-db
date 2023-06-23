@@ -22,9 +22,11 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "prime-console": "^1.1.4",
-    "unbuild": "^1.2.1"
+    "unbuild": "^1.2.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "20.3.1"
+    "@types/node": "20.3.1",
+    "@types/uuid": "^9.0.2"
   }
 }
